@@ -13,6 +13,7 @@ class ViewModel: ObservableObject {
     var urls: [URL] = []
     var dallEImages: [DalleImage] = []
     var fetching = false
+    var selectedImage: UIImage?
     
     let apiService = APIService()
     
@@ -22,6 +23,7 @@ class ViewModel: ObservableObject {
         for _ in 1...Constants.n {
             dallEImages.append(DalleImage())
         }
+        selectedImage = nil
     }
     
     init() {
