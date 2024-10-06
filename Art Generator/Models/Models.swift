@@ -5,11 +5,11 @@
 //  Created by Amir Kabiri on 10/4/24.
 //
 
-import Foundation
+import SwiftUI
 
 enum Constants {
     static let imageSize = "256x256"
-    static let n = 2
+    static let n = 4
 }
 
 struct GenerationInput: Codable {
@@ -20,4 +20,18 @@ struct GenerationInput: Codable {
     var encodedData: Data? {
         try? JSONEncoder().encode(self)
     }
+}
+
+struct DalleImage: Identifiable {
+    var id = UUID()
+    var uiImage: UIImage?
+}
+
+struct ResponseModel: Codable {
+    struct Data: Codable {
+        var url: URL
+    }
+    
+    let created: Date
+    let data: [Data]
 }
